@@ -1,0 +1,31 @@
+package com.rkiesling.mvnsqlecho.main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import com.simba.athena.jdbc.Driver;
+import com.simba.athena.jdbc.DataSource;
+
+public class JDBCConnection {
+
+    public static Connection getConnection () {
+        Connection c = null;
+	String url = "jdbc:awsathena://AwsRegion=us-west-1;" +
+	    "User=AKIAYJHMMDDUXSKZODN6;" +
+	    "Password=9iCUWl2+KrScNFmOaC6KL72YxcE3wZqX58xxF+u7;" +
+	    "S3OutputLocation=s3://recipesite1/testquery1;" +
+	    "LogLevel=1;LogPath=/tmp;";
+        try {
+	    c = DriverManager.getConnection (url);
+        } catch (Exception e) {
+	    System.out.println ("DRIVER ERROR");
+            System.out.println (e.getMessage ());
+        }
+	if (c == null) {
+	    
+	}
+        return c;
+    }
+
+}
+
