@@ -24,6 +24,9 @@ public class JDBCConnection {
 	//  1. Log level
 	//  2. Log path
 	//
+	//  See:
+	//  https://www.simba.com/products/Athena/doc/JDBC_InstallGuide/content/jdbc/ath/using/connectionurl.htm
+
 	String aws_region = System.getenv ("aws_region");
 	String aws_user = System.getenv ("aws_user");
 	String aws_password = System.getenv ("aws_password");
@@ -35,14 +38,6 @@ public class JDBCConnection {
 	    "S3OutputLocation=" + aws_output_location + ";" +
 	    "LogLevel=1;LogPath=/tmp;";
 	
-	//  This is what the URL for my credentials looks like
-	//
-	//	String url = "jdbc:awsathena://AwsRegion=us-west-1;" +
-	//	    "User=AKIAYJHMMDDUXSKZODN6;" +
-	//	    "Password=9iCUWl2+KrScNFmOaC6KL72YxcE3wZqX58xxF+u7;" +
-	//	    "S3OutputLocation=s3://recipesite1/testquery1;" +
-	//	    "LogLevel=1;LogPath=/tmp;";
-
         try {
 	    c = DriverManager.getConnection (url);
         } catch (Exception e) {
